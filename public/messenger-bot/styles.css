@@ -18,10 +18,27 @@
           .messenger-bot.expand .icon:hover{
           background-color: #666;}
       .messenger-bot.expand .content{
+        display: block;
         width: calc(100% - 10px); height: calc(100% - 60px);
+        padding: 5px;
         margin-left: 5px; margin-right: 5px;
         margin-top: 30px;}
-      .messenger-bot.expand .form {
+        .messenger-bot.expand .content .messages {
+          padding: 0; margin: 0;}
+          .messenger-bot.expand .content .messages li{
+            list-style: none; margin-bottom: 5px;
+            clear: both;}
+          .messenger-bot.expand .content .messages li .bot{
+            float: left; padding: 8px;
+            border-radius: 10px;
+            border-bottom-left-radius: 0;
+            background-color: green;}
+          .messenger-bot.expand .content .messages li .me{
+            float: right; padding: 8px;
+            border-radius: 10px;
+            border-bottom-right-radius: 0;
+            background-color: green;}
+        .messenger-bot.expand .form {
         width: calc(100% - 10px); height: 30px;
         margin-left: 5px; margin-right: 5px;
         display: block;}
@@ -46,4 +63,6 @@
           position: absolute;
           right: 0px; width: 60px;
           float: right;}
+      .messenger-bot .content {
+        display: none;}
   
