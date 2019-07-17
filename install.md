@@ -23,4 +23,3 @@ CREATE TABLE
 => insert into test_table values (1, 'hello database');
 INSERT 0 1
 => \q
-
