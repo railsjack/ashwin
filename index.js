@@ -1,13 +1,17 @@
 const cool = require('cool-ascii-faces')
 const express = require('express')
+const app = express()
+const bodyParser = require('body-parser')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true
-});
-express()
+})
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
@@ -25,9 +29,18 @@ express()
       res.send("Error " + err);
     }
   })
-  .get('/messenger-boat-load', async (req, res) => {
+  .get('/messenger-bot-load', async (req, res) => {
     try {
-      res.render('pages/messenger_boat' );
+      res.render('pages/messenger_bot' );
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+  .post('/messenger-bot-message', async (req, res) => {
+    try {
+      console.log('message: '+JSON.stringify(req.body));
+      res.render('pages/messenger_bot' );
     } catch (err) {
       console.error(err);
       res.send("Error " + err);

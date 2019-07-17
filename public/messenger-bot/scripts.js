@@ -28,8 +28,8 @@ var MB = (function(){
         }.bind(obj);
         return obj;
     };
-    var _boatWindow = function(){return _bind(document.querySelector('.messenger-boat'))}
-    var _boatForm = function(){return _bind(document.querySelector('.messenger-boat form'))}
+    var _boatWindow = function(){return _bind(document.querySelector('.messenger-bot'))}
+    var _boatForm = function(){return _bind(document.querySelector('.messenger-bot form'))}
     var _toggle = function(){
         var _win = _boatWindow();
         _win.toggleClass('expand');
@@ -37,7 +37,16 @@ var MB = (function(){
             _startChat();
         }
     };
-    var _startChat = function(){  };
+    var _startChat = function(){ 
+        ajax.post('/messenger-bot-message', 
+        {
+            dataType: 'json',
+            data: {message: 'start'}
+        }
+        , function(response){
+            console.log('response: ' + response);
+        })
+     };
     var _init = function(){
         _boatForm().bindEvents('submit', function(event){ event.preventDefault(); return false; });
     };

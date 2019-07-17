@@ -1,48 +1,48 @@
-.messenger-boat{
+.messenger-bot{
     position: fixed;
     right: 10px; bottom: 10px; z-index: 9999; }
-    .messenger-boat.expand {
+    .messenger-bot.expand {
       width: 300px; height: 350px;
       border: solid 1px #333;
       background-color: #dcdcdc;}
-      .messenger-boat.expand .icon{
+      .messenger-bot.expand .icon{
         position: absolute;
         right: 5px; top: 5px;
         width: 20px; height: 20px; border: none;
         border-radius: 0; background-color: #dcdcdc;
         text-align: center;}
-        .messenger-boat.expand .icon .dash{
+        .messenger-bot.expand .icon .dash{
           display: inline-block;
           background-color: #333;
           width: 80%; height: 1px;}
-          .messenger-boat.expand .icon:hover{
+          .messenger-bot.expand .icon:hover{
           background-color: #666;}
-      .messenger-boat.expand .content{
+      .messenger-bot.expand .content{
         width: calc(100% - 10px); height: calc(100% - 60px);
         margin-left: 5px; margin-right: 5px;
         margin-top: 30px;}
-      .messenger-boat.expand .form {
+      .messenger-bot.expand .form {
         width: calc(100% - 10px); height: 30px;
         margin-left: 5px; margin-right: 5px;
         display: block;}
-      .messenger-boat .icon{
+      .messenger-bot .icon{
       cursor: pointer;
       background-color: green;
       border: solid 1px #d9ccee;
       display: block;
       width: 30px; height: 30px; border-radius: 30px; }
-      .messenger-boat .icon .dash{
+      .messenger-bot .icon .dash{
         display: none;}
-      .messenger-boat .icon:hover {
+      .messenger-bot .icon:hover {
         background-color: lightgreen;}
-      .messenger-boat .form {
+      .messenger-bot .form {
         position: relative;
         display: none;}
-        .messenger-boat .form .text {
+        .messenger-bot .form .text {
           width: 100%;
           padding-right: 60px;
           float: left;}
-        .messenger-boat .form .submit {
+        .messenger-bot .form .submit {
           position: absolute;
           right: 0px; width: 60px;
           float: right;}
