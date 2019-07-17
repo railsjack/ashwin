@@ -25,4 +25,12 @@ express()
       res.send("Error " + err);
     }
   })
+  .get('/messenger-boat-load', async (req, res) => {
+    try {
+      res.render('pages/messenger_boat' );
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

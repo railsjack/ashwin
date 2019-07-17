@@ -17,7 +17,15 @@
           width: 80%; height: 1px;}
           .messenger-boat.expand .icon:hover{
           background-color: #666;}
-    .messenger-boat .icon{
+      .messenger-boat.expand .content{
+        width: calc(100% - 10px); height: calc(100% - 60px);
+        margin-left: 5px; margin-right: 5px;
+        margin-top: 30px;}
+      .messenger-boat.expand .form {
+        width: calc(100% - 10px); height: 30px;
+        margin-left: 5px; margin-right: 5px;
+        display: block;}
+      .messenger-boat .icon{
       cursor: pointer;
       background-color: green;
       border: solid 1px #d9ccee;
@@ -27,3 +35,15 @@
         display: none;}
       .messenger-boat .icon:hover {
         background-color: lightgreen;}
+      .messenger-boat .form {
+        position: relative;
+        display: none;}
+        .messenger-boat .form .text {
+          width: 100%;
+          padding-right: 60px;
+          float: left;}
+        .messenger-boat .form .submit {
+          position: absolute;
+          right: 0px; width: 60px;
+          float: right;}
+  
