@@ -1,0 +1,29 @@
+.messenger-boat{
+    position: fixed;
+    right: 10px; bottom: 10px; z-index: 9999; }
+    .messenger-boat.expand {
+      width: 300px; height: 350px;
+      border: solid 1px #333;
+      background-color: #dcdcdc;}
+      .messenger-boat.expand .icon{
+        position: absolute;
+        right: 5px; top: 5px;
+        width: 20px; height: 20px; border: none;
+        border-radius: 0; background-color: #dcdcdc;
+        text-align: center;}
+        .messenger-boat.expand .icon .dash{
+          display: inline-block;
+          background-color: #333;
+          width: 80%; height: 1px;}
+          .messenger-boat.expand .icon:hover{
+          background-color: #666;}
+    .messenger-boat .icon{
+      cursor: pointer;
+      background-color: green;
+      border: solid 1px #d9ccee;
+      display: block;
+      width: 30px; height: 30px; border-radius: 30px; }
+      .messenger-boat .icon .dash{
+        display: none;}
+      .messenger-boat .icon:hover {
+        background-color: lightgreen;}
