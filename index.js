@@ -9,6 +9,9 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true
 })
+
+const botController = require('./controllers/messengerBotController')
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app
@@ -17,33 +20,7 @@ app
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/cool', (req, res) => res.send(cool()))
-  .get('/db', async (req, res) => {
-    try {
-      const client = await pool.connect()
-      const result = await client.query('SELECT * FROM test_table');
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
-  .get('/messenger-bot-load', async (req, res) => {
-    try {
-      res.render('pages/messenger_bot' );
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
-  .post('/messenger-bot-message', async (req, res) => {
-    try {
-      console.log('message: '+JSON.stringify(req.body));
-      res.render('pages/messenger_bot' );
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
+  .get('/db', botController.testDb)
+  .get('/messenger-bot-load', botController.messengerLoad)
+  .post('/messenger-bot-message', botController.handleMessage)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
