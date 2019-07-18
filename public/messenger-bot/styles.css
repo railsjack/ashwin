@@ -3,25 +3,36 @@
     right: 10px; bottom: 10px; z-index: 9999; }
     .messenger-bot.expand {
       width: 300px; height: 350px;
-      border: solid 1px #333;
-      background-color: #dcdcdc;}
+      border-radius: 5px;
+      border: solid 1px #ccc;
+      background-color: #fff;
+      -webkit-box-shadow: 8px 8px 5px -5px rgba(0,0,0,0.15);
+      -moz-box-shadow: 8px 8px 5px -5px rgba(0,0,0,0.15);
+      box-shadow: 8px 8px 5px -5px rgba(0,0,0,0.15);}
+      .messenger-bot.expand .title {
+        display: block;
+        font-size: 10.5pt;
+        position: absolute; left: 8px; top: 5px;}
       .messenger-bot.expand .icon{
         position: absolute;
         right: 5px; top: 5px;
         width: 20px; height: 20px; border: none;
-        border-radius: 0; background-color: #dcdcdc;
+        border-radius: 3px; 
+        background-color: white;
+        border: solid 1px #ccc;
         text-align: center;}
-        .messenger-bot.expand .icon .dash{
-          display: inline-block;
-          background-color: #333;
-          width: 80%; height: 1px;}
-          .messenger-bot.expand .icon:hover{
-          background-color: #666;}
+      .messenger-bot.expand .icon:hover{
+        background-color: #eee;}
+      .messenger-bot.expand .icon .dash{
+        display: inline-block;
+        background-color: #aaaaaa;
+        width: 80%; height: 1px;}
       .messenger-bot.expand .content{
         display: block;
         overflow: auto;
+        border-top: solid 1px #dcdcdc;
         width: calc(100% - 10px); height: calc(100% - 60px);
-        padding: 5px;
+        padding: 5px; padding-top: 10px;
         margin-left: 5px; margin-right: 5px;
         margin-top: 30px;}
         .messenger-bot.expand .content .messages {
@@ -33,22 +44,24 @@
             float: left; padding: 8px;
             border-radius: 10px;
             border-bottom-left-radius: 0;
-            background-color: green;}
+            background-color: lightgreen;}
           .messenger-bot.expand .content .messages li .me{
             float: right; padding: 8px;
             border-radius: 10px;
             border-bottom-right-radius: 0;
-            background-color: green;}
+            background-color: lightgreen;}
         .messenger-bot.expand .form {
         width: calc(100% - 10px); height: 30px;
         margin-left: 5px; margin-right: 5px;
         display: block;}
+      .messenger-bot .title {
+        display: none;}
       .messenger-bot .icon{
-      cursor: pointer;
-      background-color: green;
-      border: solid 1px #d9ccee;
-      display: block;
-      width: 30px; height: 30px; border-radius: 30px; }
+        cursor: pointer;
+        background-color: green;
+        border: solid 1px #d9ccee;
+        display: block;
+        width: 30px; height: 30px; border-radius: 30px; border-bottom-right-radius: 0;}
       .messenger-bot .icon .dash{
         display: none;}
       .messenger-bot .icon:hover {
