@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+    <% include ../partials/nav.ejs %>
+
+    <div class="container">
+        <h2>All Messages</h2>
+
+        <table class="table bordered">
+            <tr>
+                <th>ID</th>
+                <th>Messages</th>
+                <th>*</th>
+            </tr>
+            <% results.forEach(function(r) { %>
+            <tr>
+                <td><a href="/messages/<%= r.id%>"><%= r.id%></a></td>
+                <td>
+                    <pre><%= unescape(r.message) %></pre>
+                </td>
+                <td>
+                    <a href="/messages/<%= r.id%>/delete">Delete</a>
+                </td>
+            </tr>
+            <% }); %>
+        </table>
+    </div>
+
+</body>
+
+</html>

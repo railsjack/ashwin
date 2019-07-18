@@ -4,11 +4,6 @@ const app = express()
 const bodyParser = require('body-parser')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const { Pool } = require('pg');
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
-})
 
 const botController = require('./controllers/messengerBotController')
 
@@ -22,5 +17,9 @@ app
   .get('/cool', (req, res) => res.send(cool()))
   .get('/db', botController.testDb)
   .get('/messenger-bot-load', botController.messengerLoad)
+  .get('/messages', botController.allMessages)
+  .get('/messages/:id', botController.showMessage)
+  .get('/messages/:id/delete', botController.deleteMessage)
+  .delete('/messages/:id', botController.deleteMessage)
   .post('/messenger-bot-message', botController.handleMessage)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

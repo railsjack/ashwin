@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+    <% include ../partials/nav.ejs %>
+
+    <div class="container">
+        <h2>Message</h2>
+        <table class="table bordered">
+            <tr>
+                <th>ID</th>
+                <td><a href="/messages/<%= result.id%>"><%= result.id%></a></td>
+            <tr>
+                <th>Messages</th>
+                <td>
+                    <pre><%= unescape(result.message) %></pre>
+                </td>
+
+        </table>
+
+        <a href="/messages">Go to the list</a>
+    </div>
+
+</body>
+
+</html>
