@@ -29,7 +29,7 @@ var MB = (function () {
         return obj;
     };
     var _botWindow = function () { return _bind(document.querySelector('.messenger-bot')) }
-    var _boatForm = function () { return _bind(document.querySelector('.messenger-bot form')) }
+    var _botForm = function () { return _bind(document.querySelector('.messenger-bot form')) }
     var _contentBox = function () { return _bind(document.querySelector('.messenger-bot .content')) }
     var _messageBox = function () { return _bind(document.querySelector('.messenger-bot .content .messages')) }
     var _toggle = function () {
@@ -43,6 +43,7 @@ var MB = (function () {
     var messageStatus = '';
     var _startChat = function () {
         onceStarted = true;
+        _botForm().elements['text'].focus();
         ajax.post('/messenger-bot-message',
             {
                 dataType: 'json',
@@ -116,7 +117,7 @@ var MB = (function () {
         event.preventDefault(); return false;
     };
     var _init = function () {
-        _boatForm().bindEvents('submit', _handleSubmit);
+        _botForm().bindEvents('submit', _handleSubmit);
     };
     return {
         toggle: _toggle,
