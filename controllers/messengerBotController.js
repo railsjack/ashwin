@@ -1,7 +1,7 @@
 const { Pool } = require('pg');
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: process.env.LOCAL ? false : true
+    //ssl: process.env.LOCAL ? false : true
 })
 
 let response;
@@ -123,7 +123,8 @@ exports.deleteMessage = async (req, res) => {
     const id = req.params.id
     try {
         const client = await pool.connect()
-        const result = await client.query('DELETE FROM messages where id=' + id)
+        await client.query('DELETE FROM messages where id=' + id)
+        client.release()
     } catch (err) {
         console.error(err)
     }
