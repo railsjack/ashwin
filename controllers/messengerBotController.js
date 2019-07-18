@@ -69,7 +69,9 @@ exports.handleMessage = async (req, res) => {
                     default:
                         response = ""
                 }
+                break;
             case 'SEND_MESSAGE':
+                response = ''
                 db_message = message
         }
 
