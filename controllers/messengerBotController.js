@@ -1,3 +1,4 @@
+let birthday;
 exports.testDb = async (req, res) => {
     try {
         const client = await pool.connect()
@@ -26,14 +27,40 @@ exports.handleMessage = async (req, res) => {
         console.log('message: ' + message_type)
 
         let response;
-        switch ('message_type') {
+        switch (message_type) {
             case 'start':
-                const name = req.body.message
                 response = "Hi\nWhat's your name?"
                 break;
-            case 'ANSWERING_NAME':
-                response = "Ok, great! "
+            case 'ANSWER_NAME':
+                const name = req.body.message
+                response = "Ok, great! " + name + ", when is your birthday?"
                 break;
+            case 'ANSWER_BIRTHDAY':
+                birthday = req.body.message
+                response = "Ok. Do you want to know how many days till your next birtday?"
+                break;
+            case 'ANSWER_TILLDAYS':
+                const yesno = req.body.message
+                console.log('birthday: '+ birthday);
+                console.log('yesno: '+ yesno);
+                switch (yesno) {
+                    case 'yes':
+                    case 'yeah':
+                    case 'yup':
+                        if (birthday) {
+                            let date = new Date(birthday);
+                            date = new Date(new Date().getFullYear(),date.getMonth(),date.getDate())
+                            const left_days = parseInt((date - +new Date) / 1000 / 3600 / 24)
+                            response = "There are " + left_days + " days left until your next birthday"
+                        }
+                        break;
+                    case 'no':
+                    case 'nah':
+                        response = "Goodbye!"
+                        break;
+                    default:
+                        response = ""
+                }
         }
         res.send({ response: response })
     } catch (err) {
