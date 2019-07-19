@@ -1,39 +1,37 @@
-# node-js-getting-started
-
-A barebones Node.js app using [Express 4](http://expressjs.com/).
-
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
-
-## Running Locally
-
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
-
-```sh
-$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
+## You can refer to this document in order to create new one.
 
 ```
 $ heroku create
-$ git push heroku master
+$ heroku rename ashwin-nahrae --app mighty-headland-77844
+$ git push origin master && git push heroku master && heroku ps:scale web=1
 $ heroku open
-```
-or
+$ npm install --yes
+$ heroku local web
+$ npm install cool-ascii-faces --save
+$ heroku open cool
+$ heroku addons:create papertrail
+$ heroku addons:open papertrail
+$ heroku addons:create heroku-postgresql:hobby-dev
+$ heroku config:set TIMES=2
+$ npm install pg --sav
+$ heroku pg:psql
+psql (9.5.2, server 9.6.2)
+SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
+Type "help" for help.
+=> create table test_table (id integer, name text);
+CREATE TABLE
+=> insert into test_table values (1, 'hello database');
+INSERT 0 1
+=> \q
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+$ heroku pg:psql
+psql (9.5.2, server 9.6.2)
+SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
+Type "help" for help.
+=> create table messages (id serial primary key, message text);
+CREATE TABLE
+=> insert into messages values (1, 'hello database');
+INSERT 0 1
+=> \q
 
-## Documentation
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
