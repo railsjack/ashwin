@@ -1,6 +1,6 @@
 ## You can refer to this document in order to create new one.
 
-```
+```sh
 $ heroku create
 $ heroku rename ashwin-nahrae --app mighty-headland-77844
 $ git push origin master && git push heroku master && heroku ps:scale web=1
@@ -34,4 +34,7 @@ CREATE TABLE
 INSERT 0 1
 => \q
 
+```
 
+## Demo Presentation
+![](public/demo.gif)
