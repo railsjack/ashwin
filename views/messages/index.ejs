@@ -22,7 +22,7 @@
             <tr>
                 <td><a href="/messages/<%= r.id%>"><%= r.id%></a></td>
                 <td>
-                    <pre><%= unescape(r.message) %></pre>
+                    <div class="well" style="padding: 5px; word-wrap: break-word; width: 100%;"><%= unescape(r.message) %></div>
                 </td>
                 <td>
                     <a href="/messages/<%= r.id%>/delete">Delete</a>
